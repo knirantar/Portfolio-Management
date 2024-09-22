@@ -33,7 +33,7 @@ public class Users implements UserDetails {
     private String email;
 
     @Column(nullable = false)
-    private String passwordHash;
+    private String password;
 
     private String firstName;
 
@@ -76,12 +76,12 @@ public class Users implements UserDetails {
         this.email = email;
     }
 
-    public String getPasswordHash() {
-        return this.passwordHash;
+    public String getPassword() {
+        return this.password;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -143,11 +143,6 @@ public class Users implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
-    }
-
-    @Override
-    public String getPassword() {
-        return this.passwordHash;
     }
 
 }

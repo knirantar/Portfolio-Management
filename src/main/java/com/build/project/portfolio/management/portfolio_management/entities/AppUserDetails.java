@@ -22,7 +22,7 @@ public class AppUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.map(Users::getPasswordHash).orElse(null);
+        return user.map(Users::getPassword).orElse(null);
     }
 
     @Override
